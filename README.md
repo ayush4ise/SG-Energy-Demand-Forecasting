@@ -50,3 +50,25 @@ The ```seasonality-calculation.py``` file executes these calculations. Users can
 - Four Excel files are generated, each containing yearly sheets.
 - Rows depict time slots, while columns represent weekdays/weekends for each month.
 - The data is located in the folder named ```data\Seasonality Index Data\```.
+
+
+### 3. ANOVA tests [Completed - 24/06/2023]
+
+**Description**:
+- One-way ANOVA tests were conducted to assess the consistency of seasonality indices over consecutive 3-year periods.
+- Results were gathered in blocks of 3 years (e.g., 2005-2007, 2008-2010, etc.).
+- Testing Details:
+  - Null Hypothesis (\(H_0\)): S.I. values for a given time slot remain constant over 3 years.
+  - Alternate Hypothesis (\(H_1\)): S.I. values show significant variation.
+- Tests were performed separately for one, two, three, and four-hour groups, considering weekdays and weekends independently.
+
+**Code**:
+The ```anova-tests.py``` file facilitates these computations and stores the results. Users can utilize the code by adjusting the file paths within the script and specifying the hour group of interest.
+
+**Output**:
+- Four Excel files are generated for each hour group.
+- Each Excel file contains sheets representing the 3-year blocks.
+- The data is located in the folder named ```data\3 Year ANOVA\```.
+
+
+s
