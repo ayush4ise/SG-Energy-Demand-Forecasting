@@ -71,4 +71,3 @@ The ```anova-tests.py``` file facilitates these computations and stores the resu
 - The data is located in the folder named ```data\3 Year ANOVA\```.
 
 
-s
