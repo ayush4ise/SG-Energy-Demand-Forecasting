@@ -35,7 +35,7 @@ The ```data-collection.ipynb``` file is an improved version of the original code
   - Hourly S.I. per month for weekdays-weekends and Mon to Fri-weekends.
 - Calculation Formula:  
   - **Half-hourly SI per month (weekdays/weekends)** = 
-    $\frac{Average of Half-hourly demand for a month for the given time slot (weekdays/weekends)}{Average of Half-hourly demand for a month across all time slots (weekdays/weekends)}
+    $\frac{Average of Half-hourly demand for a month for the given time slot (weekdays/weekends)}{Average of Half-hourly demand for a month across all time slots (weekdays/weekends)}$
   - Similar computation for the remaining three indices.
 - Special Conditions:
   - While calculating for weekdays/weekends:
