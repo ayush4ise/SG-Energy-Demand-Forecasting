@@ -54,6 +54,8 @@ The ```seasonality-calculation.py``` file executes these calculations. Users can
 
 ### 3. ANOVA tests [Completed - 24/06/2023]
 
+**Data used**: ```data\Yearly Energy Demand Data\System Demand (Actual)\```
+
 **Description**:
 - One-way ANOVA tests were conducted to assess the consistency of seasonality indices over consecutive 3-year periods.
 - Results were gathered in blocks of 3 years (e.g., 2005-2007, 2008-2010, etc.).
