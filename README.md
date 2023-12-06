@@ -22,3 +22,32 @@ The ```data-collection.ipynb``` file is an improved version of the original code
 - Yearly data is stored in files with columns representing days and rows representing half-hourly slots.  
 - Note that columns may not necessarily span from 1st January to 31st December; they start from the first week and end at the last week of each year.  
 - The data is located in the folder named ```data\Yearly Energy Demand Data```.
+
+
+### 2. S.I. Calculation [Completed - 10/06/2023]
+
+**Data used**: ```data\Yearly Energy Demand Data\System Demand (Actual)\```  
+
+**Description**:
+- The yearly demand data (system actual) is utilized to calculate seasonality indices (S.I.).
+- Two types of seasonality indices are computed: 
+  - Half-hourly S.I. per month 
+  - Hourly S.I. per month for weekdays-weekends and Mon to Fri-weekends.
+- Calculation Formula:  
+  - **Half-hourly SI per month (weekdays/weekends)** = 
+    - (Average of Half-hourly demand for a month for the given time slot (weekdays/weekends)) / 
+    - (Average of Half-hourly demand for a month across all time slots (weekdays/weekends))
+  - Similar computation for the remaining three indices.
+- Special Conditions:
+  - While calculating for weekdays/weekends:
+    1. If the first day of the month is Thursday or Friday, they are counted in the previous month's weekdays.
+    2. If the first day of the month is Sunday, it is counted in the previous month's weekends.
+- Hourly S.I. is derived by averaging S.I.s of two consecutive half-hourly time slots, treating it as an hourly slot. _(This is mathematically equivalent to the SI obtained using the formula.)_
+
+**Code**:
+The ```seasonality-calculation.py``` file executes these calculations. Users can employ this file by updating the file paths accordingly within the code.
+
+**Output**:
+- Four Excel files are generated, each containing yearly sheets.
+- Rows depict time slots, while columns represent weekdays/weekends for each month.
+- The data is located in the folder named ```data\Seasonality Index Data\```.
