@@ -43,7 +43,7 @@ The ```data-collection.ipynb``` file is an improved version of the original code
     2. If the first day of the month is Sunday, it is counted in the previous month's weekends.
 - Hourly S.I. is derived by averaging S.I.s of two consecutive half-hourly time slots, treating it as an hourly slot. _(This is mathematically equivalent to the SI obtained using the formula.)_
 
-**Code**:
+**Code**:  
 The ```seasonality-calculation.py``` file executes these calculations. Users can employ this file by updating the file paths accordingly within the code.
 
 **Output**:
@@ -62,7 +62,7 @@ The ```seasonality-calculation.py``` file executes these calculations. Users can
   - Alternate Hypothesis (\(H_1\)): S.I. values show significant variation.
 - Tests were performed separately for one, two, three, and four-hour groups, considering weekdays and weekends independently.
 
-**Code**:
+**Code**:  
 The ```anova-tests.py``` file facilitates these computations and stores the results. Users can utilize the code by adjusting the file paths within the script and specifying the hour group of interest.
 
 **Output**:
