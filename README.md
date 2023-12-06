@@ -58,8 +58,8 @@ The ```seasonality-calculation.py``` file executes these calculations. Users can
 - One-way ANOVA tests were conducted to assess the consistency of seasonality indices over consecutive 3-year periods.
 - Results were gathered in blocks of 3 years (e.g., 2005-2007, 2008-2010, etc.).
 - Testing Details:
-  - Null Hypothesis (\(H_0\)): S.I. values for a given time slot remain constant over 3 years.
-  - Alternate Hypothesis (\(H_1\)): S.I. values show significant variation.
+  - Null Hypothesis ($H_0$): S.I. values for a given time slot remain constant over 3 years.
+  - Alternate Hypothesis ($H_1$): S.I. values show significant variation.
 - Tests were performed separately for one, two, three, and four-hour groups, considering weekdays and weekends independently.
 
 **Code**:  
@@ -71,3 +71,4 @@ The ```anova-tests.py``` file facilitates these computations and stores the resu
 - The data is located in the folder named ```data\3 Year ANOVA\```.
 
 
+### 4. T-tests [Completed - ]
