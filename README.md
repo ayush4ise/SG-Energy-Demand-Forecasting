@@ -211,8 +211,25 @@ Located in the folder named ```data\New SI Data\```
 ---
 
 #### [Completed - 24/09/2023]
-Description: alpha,beta = 0.2,0.8 (found), tested es model for the first time
-Code: mehhhh, let's see
+
+**Data**: 
+- ```i_sh[scaled].txt```,```i_sm.txt```
+- ```data\Yearly Energy Demand Data\System Demand (Actual)\```
+
+**Description**:
+- First-time testing of the ES model to forecast 2018 demand.
+- Seasonalities are assumed to be constant and are not updated in the model.
+- Data for the forecasted year is assumed to be unknown.
+- Initial seasonalities taken as the average of seasonality data from 2011 to 2017.
+- Input timeseries data is considered for the years 2011 to 2017.
+- Utilized a 100*100 search grid to find alpha and beta parameter values for the least Mean Absolute Percentage Error (MAPE):  
+  $\alpha$ = 0.19, $\beta$ = 0.88
+
+**Code**: 
+- Use the `constant_seasonality_model` function from the file ```models.py``` for the model.
+- File ```utils_ts.py``` is available to convert energy demand data into usable timeseries data for the input and test series.
+
+
 
 26/09/2023:
 Description: linreg models output
