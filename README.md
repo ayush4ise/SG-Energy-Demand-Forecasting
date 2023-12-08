@@ -73,4 +73,131 @@ The ```anova-tests.py``` file facilitates these computations and stores the resu
 - The data is located in the folder named ```data\3 Year ANOVA\```.
 
 
-### 4. T-tests [Completed - ]
+### 4. T-tests [Completed - 01/07/2023]
+
+**Data used**: 
+
+**Description**:
+
+**Code**:
+
+**Output**:
+
+### [Completed - 01/07/2023]:  
+
+**Data used**: ```Hourly SI per Month(Weekdays,Weekends).xlsx```
+
+**Description**: 
+- One sample two tailed t-tests were performed to compare the absolute difference between a given hour's SI across two consecutive years with a given value (population mean)
+- Results were calculated for weekdays and weekends separately.
+- Testing Details:
+  - Null Hypothesis ($H_0$): Absolute difference between S.I. values for a given time slot = 0.005.
+  - Alternate Hypothesis ($H_1$): It's not equal.
+
+**Code**: 
+The ```ttest_1samp2tail.py``` file facilitates these computations and stores the results. Users can utilize the code by adjusting the file paths within the script and specifying the day type (weekdays/weekends) of interest.
+
+**Output**: 
+- Two Excel files are generated for each day type.
+- Each Excel file contains sheets representing the consecutive year pairs.
+- The data is located in the folder named ```data\3 Year ANOVA\t-testing```.
+- The files are ```Consolidated t-test results [weekdays].xlsx``` and ```Consolidated t-test results [weekends].xlsx```
+
+
+### [Completed - 06/07/2023]:
+
+**Data used**: ```data\Seasonality Index Data\```
+
+**Description**: 
+- One sample two tailed t-tests from previous work are conducted to find the value of population mean for which the null hypothesis ($H_0$) gets rejected for all the consecutive yearly pairs
+
+**Code**: ttesting.py [v1.0] [take updated one from github]
+
+Output:
+We performed the t-tests for all yearly pairs and found the values for each case. 
+Hourly-
+Weekdays- 0.0184
+Weekends- 0.0185
+
+Mon- 0.0215
+Tue- 0.0229
+Wed- 0.0229
+Thu- 0.0202
+Fri- 0.0271
+
+Half-Hourly-
+Weekdays- 0.0209
+Weekends- 0.0186
+
+Mon- 0.0228
+Tue- 0.0231
+Wed- 0.0236
+Thu- 0.0209
+Fri- 0.0283
+
+11/07/2023:
+Data used: Hourly SI (Weekdays,Weekends)
+Description: finding popmean for which H0 gets rejected for all yearly pairs for each hour
+Code: ttesting.py [v2.0] [take updated one from github]
+Output: t-test results (all possible pairs)
+
+14/07/2023:
+Data used: Yearly Energy Demand Data
+Description: finding monthly seasonality
+Formula- avg daily demand in a month (weekdays)/avg daily demand in an year (weekdays) [similarly for weekends]
+also, follows the special condition mentioned in seasonality
+Code: monthly-seasonality.py [based off seasonality-calculation.py]
+Output: S.I. Month of the Year ([Corrected] in Drive)
+
+Also, 
+perform t-tests [finding popmean for which H0 gets rejected for all yearly pairs]
+Code: ttesting.py [v2.1] [get from github]
+Output: Monthly SI t-test results
+
+02/08/2023:
+Data Used: Yearly Energy Demand Data
+Description: scaling the SIs (new formulas)
+Formulas- [check once again with Juan ppt]
+SI for Month of the Year = avg daily demand for month/avg daily demand for year for a particular time slot
+SI for Day of the Week = avg daily demand for Mondays for a month/avg daily demand for the month * monthlySI 
+SI for Hour of the Day = avg hourly demand for a given hour of Mondays for a month/avg hourly demand of Mondays for a momth * monthlySI * weekly SI
+Code: seasonality[01.08].ipynb 
+Output:
+[under New SI data in Drive]
+SI for Month of the Year
+SI for Day of the Week
+SI for Hour of the Day
+
+17/08/2023:
+Description:
+basic definition of the proposed ES model
+Code: model_definition.ipynb [update it to remove doubts and issues]
+models.py
+
+06/09/2023:
+Description: hourlySI scaled with just monthlySI, t-tests for the same
+Code: employed some old code with some necessary changes
+
+24/09/2023:
+Description: alpha,beta = 0.2,0.8 (found), tested es model for the first time
+Code: mehhhh, let's see
+
+26/09/2023:
+Description: linreg models output
+Code: gdp_popgrowth something something on Drive
+Output: forecast 2018 [Drive]
+
+--decision to use unscaled SIs only--
+[add this detail into "data used"]
+
+--NEM data collection, but not that big of a work--
+
+10/2023:
+Description: multiple models and results collection
+Code: pipelines, utils_ts, .ipynbs 
+
+11/2023:
+Description: experiment with 5Y inputs
+Code: updated pipelines in .ipynb,5y-input, es-issues and sarimax-trouble for code on Github [although same code, just tweaked input]
+
+MAPE VALUE TABLE
