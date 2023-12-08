@@ -35,7 +35,7 @@ The ```data-collection.ipynb``` file is an improved version of the original code
   - Hourly S.I. per month for weekdays-weekends and Mon to Fri-weekends.
 - Calculation Formula:  
   - **Half-hourly SI per month (weekdays/weekends)** = 
-    $\frac{\text{Average of Half-hourly demand for a month for the given time slot (weekdays/weekends)}}{\text{Average of Half-hourly demand for a month across all time slots (weekdays/weekends)}}$
+    $\frac{\text{Average of half-hourly demand for a month for the given time slot (weekdays/weekends)}}{\text{Average of half-hourly demand for a month across all time slots (weekdays/weekends)}}$
   - Similar computation for the remaining three indices.
 - Special Conditions:
   - While calculating for weekdays/weekends:
@@ -132,21 +132,29 @@ The `ttest_2samp1tail.py` file contains version 2.0, which is commented out in t
 
 **Output**: 
 - Performed tests for all possible yearly pairs, determining population mean values (up to 3 decimal places) for each case.
-- Results stored in ```data\t-testing\t-test results (all possible pairs).xlsx```.
+- Results stored in ```data\t-testing\Hourly S.I. t-test results (all possible pairs).xlsx```.
 
 
-14/07/2023:
-Data used: Yearly Energy Demand Data
-Description: finding monthly seasonality
-Formula- avg daily demand in a month (weekdays)/avg daily demand in an year (weekdays) [similarly for weekends]
-also, follows the special condition mentioned in seasonality
-Code: monthly-seasonality.py [based off seasonality-calculation.py]
-Output: S.I. Month of the Year ([Corrected] in Drive)
+### 5. New S.I. Calculation 
 
-Also, 
-perform t-tests [finding popmean for which H0 gets rejected for all yearly pairs]
-Code: ttesting.py [v2.1] [get from github]
-Output: Monthly SI t-test results
+#### [Completed - 14/07/2023]
+
+**Data used**: ```data\Yearly Energy Demand Data\System Demand (Actual)\```
+
+**Description**: 
+- Computed monthly seasonality indices using the formula:
+  - Monthly S.I. = $\frac{\text{Average daily demand in a month (weekdays/weekends)}}{\text{Average daily demand in a year (weekdays/weekends)}}$
+- Followed special conditions mentioned in "2. S.I. Calculation".
+- Conducted t-tests using the methodology from previous work [06/07/2023] for all possible yearly pairs.
+
+**Code**: 
+- The file ```monthly-seasonality.py``` executes the computations and saves the results by adjusting the input file paths accordingly. It is based on ```seasonality-calculation.py```.
+- Version 2.1 in `ttest_2samp1tail.py` is used for executing t-tests by adjusting the file paths, performing the computations, and saving the results.
+
+**Output**: 
+- Monthly seasonalities stored in ```data\New SI Data\S.I. Month of the Year.xlsx```
+- t-test results stored in ```data\t-testing\Monthly S.I. t-test results.xlsx```
+
 
 02/08/2023:
 Data Used: Yearly Energy Demand Data
