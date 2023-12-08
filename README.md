@@ -256,9 +256,13 @@ Located in the folder named ```data\New SI Data\```
 - Utilize ```gdp-model.py``` and ```population-model.py``` to forecast and save 2018 hourly demand data, adjusting the file paths accordingly.
 
 ---
+
 It was decided to utilize only unscaled Seasonal Indices (SIs) for the ongoing analyses and forecasting models.
+
 ---
+
 NEM (Net Energy Metering) data was collected to facilitate a comparative analysis.
+
 ---
 
 
