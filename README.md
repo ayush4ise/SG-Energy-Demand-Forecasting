@@ -245,7 +245,7 @@ Located in the folder named ```data\New SI Data\```
 **Description**: 
 - Defined three linear regression models for comparison with the ES model.
 - Models are used to forecast total yearly demand, then further employed to make hourly demand forecasts.
-- Formula Used:
+- Formula Used:  
   Hourly Demand = $\frac{\text{Total Yearly Demand}}{365*24} * \text{Monthly SI} * \text{Daily SI}$
 - Models:
   - First model uses the relationship between GDP vs Total Yearly Demand.
