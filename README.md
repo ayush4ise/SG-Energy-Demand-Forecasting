@@ -73,67 +73,49 @@ The ```anova-tests.py``` file facilitates these computations and stores the resu
 - The data is located in the folder named ```data\3 Year ANOVA\```.
 
 
-### 4. T-tests [Completed - 01/07/2023]
+### 4. T-tests
 
-**Data used**: 
-
-**Description**:
-
-**Code**:
-
-**Output**:
-
-### [Completed - 01/07/2023]:  
+#### [Completed - 01/07/2023]
 
 **Data used**: ```Hourly SI per Month(Weekdays,Weekends).xlsx```
 
 **Description**: 
-- One sample two tailed t-tests were performed to compare the absolute difference between a given hour's SI across two consecutive years with a given value (population mean)
-- Results were calculated for weekdays and weekends separately.
+- Conducted one sample two-tailed t-tests to compare the absolute difference between a given hour's S.I. across two consecutive years against a specified value (population mean).
+- Results calculated separately for weekdays and weekends.
 - Testing Details:
   - Null Hypothesis ($H_0$): Absolute difference between S.I. values for a given time slot = 0.005.
-  - Alternate Hypothesis ($H_1$): It's not equal.
+  - Alternate Hypothesis ($H_1$): Difference is not equal to 0.005.
 
 **Code**: 
-The ```ttest_1samp2tail.py``` file facilitates these computations and stores the results. Users can utilize the code by adjusting the file paths within the script and specifying the day type (weekdays/weekends) of interest.
+The ```ttest_1samp2tail.py``` file performs these computations and stores the results. To use, update the file paths in the script and specify the day type (weekdays/weekends).
 
 **Output**: 
-- Two Excel files are generated for each day type.
-- Each Excel file contains sheets representing the consecutive year pairs.
-- The data is located in the folder named ```data\3 Year ANOVA\t-testing```.
-- The files are ```Consolidated t-test results [weekdays].xlsx``` and ```Consolidated t-test results [weekends].xlsx```
+Two Excel files are generated for each day type:
+- ```Consolidated t-test results [weekdays].xlsx```
+- ```Consolidated t-test results [weekends].xlsx```
+Located in the folder named ```data\3 Year ANOVA\t-testing```.
 
+---
 
-### [Completed - 06/07/2023]:
+#### [Completed - 06/07/2023]
 
 **Data used**: ```data\Seasonality Index Data\```
 
 **Description**: 
-- One sample two tailed t-tests from previous work are conducted to find the value of population mean for which the null hypothesis ($H_0$) gets rejected for all the consecutive yearly pairs
+- Executed two sample one-tailed t-tests to determine the population mean value (difference in S.I.s) for which the null hypothesis ($H_0$) is rejected across consecutive yearly pairs.
+- Details of the t-test are available in the file ```ttesting-sample.ipynb```.
+- Population mean values were determined through trial and error.
 
-**Code**: ttesting.py [v1.0] [take updated one from github]
+**Code**: 
+The `ttest_2samp1tail.py` file contains version 1.0, which is commented out in the code. This version is used for executing the computations by adjusting the file paths as indicated, while the subsequent code is commented out.
 
-Output:
-We performed the t-tests for all yearly pairs and found the values for each case. 
-Hourly-
-Weekdays- 0.0184
-Weekends- 0.0185
+**Output**:
+The tests were performed for all consecutive yearly pairs, determining population mean values for each case. Results are as follows:
 
-Mon- 0.0215
-Tue- 0.0229
-Wed- 0.0229
-Thu- 0.0202
-Fri- 0.0271
-
-Half-Hourly-
-Weekdays- 0.0209
-Weekends- 0.0186
-
-Mon- 0.0228
-Tue- 0.0231
-Wed- 0.0236
-Thu- 0.0209
-Fri- 0.0283
+  **Hourly Weekdays**: 0.0184, **Weekends**: 0.0185
+  **Mon**: 0.0215, **Tue**: 0.0229, **Wed**: 0.0229, **Thu**: 0.0202, **Fri**: 0.0271
+  **Half-Hourly Weekdays**: 0.0209, **Weekends**: 0.0186
+  **Mon**: 0.0228, **Tue**: 0.0231, **Wed**: 0.0236, **Thu**: 0.0209, **Fri**: 0.0283
 
 11/07/2023:
 Data used: Hourly SI (Weekdays,Weekends)
