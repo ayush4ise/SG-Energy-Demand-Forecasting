@@ -77,7 +77,7 @@ The ```anova-tests.py``` file facilitates these computations and stores the resu
 
 #### [Completed - 01/07/2023]
 
-**Data used**: ```Hourly SI per Month(Weekdays,Weekends).xlsx```
+**Data used**: ```data\Seasonality Index Data\Hourly SI per Month(Weekdays,Weekends).xlsx```
 
 **Description**: 
 - Conducted one sample two-tailed t-tests to compare the absolute difference between a given hour's S.I. across two consecutive years against a specified value (population mean).
@@ -110,18 +110,30 @@ Located in the folder named ```data\3 Year ANOVA\t-testing```.
 The `ttest_2samp1tail.py` file contains version 1.0, which is commented out in the code. This version is used for executing the computations by adjusting the file paths as indicated, while the subsequent code is commented out.
 
 **Output**:  
-The tests were performed for all consecutive yearly pairs, determining population mean values for each case. Results are as follows:
+The tests were performed for all consecutive yearly pairs, determining population mean values (upto 3 decimal places) for each case. Results are as follows:
 
   **Hourly Weekdays**: 0.0184, **Weekends**: 0.0185  
   **Mon**: 0.0215, **Tue**: 0.0229, **Wed**: 0.0229, **Thu**: 0.0202, **Fri**: 0.0271  
   **Half-Hourly Weekdays**: 0.0209, **Weekends**: 0.0186  
   **Mon**: 0.0228, **Tue**: 0.0231, **Wed**: 0.0236, **Thu**: 0.0209, **Fri**: 0.0283  
 
-11/07/2023:
-Data used: Hourly SI (Weekdays,Weekends)
-Description: finding popmean for which H0 gets rejected for all yearly pairs for each hour
-Code: ttesting.py [v2.0] [take updated one from github]
-Output: t-test results (all possible pairs)
+---
+
+#### [Completed - 11/07/2023]
+
+**Data used**: ```data\Seasonality Index Data\Hourly SI per Month(Weekdays,Weekends).xlsx```
+
+**Description**:
+- Conducted t-tests following the methodology from previous work [06/07/2023].
+- Tests performed for all possible yearly pairs.
+
+**Code**:  
+The `ttest_2samp1tail.py` file contains version 2.0, which is commented out in the code. This version is used for executing the computations by adjusting the file paths as indicated, while the subsequent code is commented out.
+
+**Output**: 
+- Performed tests for all possible yearly pairs, determining population mean values (up to 3 decimal places) for each case.
+- Results stored in ```data\t-testing\t-test results (all possible pairs).xlsx```.
+
 
 14/07/2023:
 Data used: Yearly Energy Demand Data
