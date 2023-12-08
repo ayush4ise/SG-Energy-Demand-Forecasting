@@ -266,12 +266,25 @@ NEM (Net Energy Metering) data was collected to facilitate a comparative analysi
 ---
 
 
-10/2023:
-Description: multiple models and results collection
-Code: pipelines, utils_ts, .ipynbs 
+### 7. Model Comparison [Completed - 10/2023]
 
-11/2023:
-Description: experiment with 5Y inputs
-Code: updated pipelines in .ipynb,5y-input, es-issues and sarimax-trouble for code on Github [although same code, just tweaked input]
+**Description**: 
+- Multiple models were utilized for comparison, including FBProphet, SARIMAX, MSTL+ARIMA, and Dynamic Harmonic Regression.
+- NEM Forecasts were considered for the NEM demand data alongside the ES model, assuming knowledge of the forecast year's demand.
+- Forecasts were generated, and Mean Absolute Percentage Error (MAPE) values were recorded for the years 2018 to 2022.
 
-MAPE VALUE TABLE
+**Code**: 
+- ```utils_ts.py``` handles input and test series.
+- ```models.py``` contains ES models.
+- ```pipelines.py``` stores pipelines for all models to calculate forecasts and record results.
+- ```yearly-forecasts-for-table.ipynb``` shows how the values for the MAPE table are calculated.
+
+### 8. 5Y Input Experiment [Completed - 11/2023]
+
+**Description**: 
+- Previously, models were trained with data from 2011 to (forecast year - 1), causing overfitting in some models like SARIMAX, resulting in suboptimal performance.
+- An experiment was conducted using only the previous 5 years' data as input for forecasting. For instance, for predicting 2018 data, input consisted of data from 2013 to 2017; for 2019, data from 2014 to 2018, and so forth.
+- This experiment excluded linear regression models, as these models generally benefit from more data.
+
+**Code**:  
+The same codes used in the previous section [7. Model Comparison] were employed with adjustments to limit the input data to the last 5 years.
