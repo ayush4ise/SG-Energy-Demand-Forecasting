@@ -6,7 +6,7 @@ This repository contains all the codes used for our analysis in the paper.
  
 ### 1. Data Collection [Completed - 13/05/2023]
 
-**Data Source**: [www.ema.gov.sg](www.ema.gov.sg)  
+**Data Source**: www.ema.gov.sg
 
 **Description**:  
 - The data is structured in weekly files, with 7 columns representing each day of the week and 48 rows representing half-hourly slots in a day.    
@@ -239,8 +239,8 @@ Located in the folder named ```data\New SI Data\```
 
 **Data**: 
 - ```data\Model Inputs\i_sh[scaled].txt```, ```data\Model Inputs\i_sm.txt```
-- ```data\Model Inputs\Population Growth.xlsx``` [Source - [www.singstat.gov.sg](www.singstat.gov.sg) ]
-- ```data\Model Inputs\Total Yearly Demand.xlsx``` [Source - [www.singstat.gov.sg](www.singstat.gov.sg) ]
+- ```data\Model Inputs\Population Growth.xlsx``` [Source - www.singstat.gov.sg ]
+- ```data\Model Inputs\Total Yearly Demand.xlsx``` [Source - www.singstat.gov.sg ]
 
 **Description**: 
 - Defined three linear regression models for comparison with the ES model.
