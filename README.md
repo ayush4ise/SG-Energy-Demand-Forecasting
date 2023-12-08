@@ -208,12 +208,16 @@ Located in the folder named ```data\New SI Data\```
 **Code**:  
 - Utilized ```scaled-seasonality.ipynb``` and ```ttest_2samp1tail.py``` with necessary changes as required for the updated calculations.
 
+**Output**:
+- ```Hourly SI [excluding Daily SI].xlsx``` stored in folder ```data\New SI Data\```
+- ```t-test results [scaled SIs].xlsx``` stored in folder ```data\t-testing\```
+
 ---
 
 #### [Completed - 24/09/2023]
 
 **Data**: 
-- ```i_sh[scaled].txt```,```i_sm.txt```
+- ```data\Model Inputs\i_sh[scaled].txt```,```data\Model Inputs\i_sm.txt```
 - ```data\Yearly Energy Demand Data\System Demand (Actual)\```
 
 **Description**:
@@ -229,12 +233,30 @@ Located in the folder named ```data\New SI Data\```
 - Use the `constant_seasonality_model` function from the file ```models.py``` for the model.
 - File ```utils_ts.py``` is available to convert energy demand data into usable timeseries data for the input and test series.
 
+---
+
+#### [Completed - 26/09/2023]
+
+**Data**: 
+- ```data\Model Inputs\i_sh[scaled].txt```, ```data\Model Inputs\i_sm.txt```
+- ```data\Model Inputs\Population Growth.xlsx``` [Source - [www.singstat.gov.sg](www.singstat.gov.sg) ]
+- ```data\Model Inputs\Total Yearly Demand.xlsx``` [Source - [www.singstat.gov.sg](www.singstat.gov.sg) ]
+
+**Description**: 
+- Defined three linear regression models for comparison with the ES model.
+- Models are used to forecast total yearly demand, then further employed to make hourly demand forecasts.
+- Formula Used:
+  Hourly Demand = $\frac{\text{Total Yearly Demand}}{365*24} * \text{Monthly SI} * \text{Daily SI}$
+- Models:
+  - First model uses the relationship between GDP vs Total Yearly Demand.
+  - Second model uses the relationship between Population Growth vs Total Yearly Demand.
+  - Third model uses the relationship between both GDP and Population Growth vs Total Yearly Demand.
+
+**Code**:
+- Utilize ```gdp-model.py``` and ```population-model.py``` to forecast and save 2018 hourly demand data, adjusting the file paths accordingly.
 
 
-26/09/2023:
-Description: linreg models output
-Code: gdp_popgrowth something something on Drive
-Output: forecast 2018 [Drive]
+
 
 --decision to use unscaled SIs only--
 [add this detail into "data used"]
