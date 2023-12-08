@@ -183,17 +183,34 @@ The following Excel files are generated:
 - ```S.I. Hour of the Day.xlsx```
 Located in the folder named ```data\New SI Data\```
 
-17/08/2023:
-Description:
-basic definition of the proposed ES model
-Code: model_definition.ipynb [update it to remove doubts and issues]
-models.py
 
-06/09/2023:
-Description: hourlySI scaled with just monthlySI, t-tests for the same
-Code: employed some old code with some necessary changes
+### 6. Model Definition 
 
-24/09/2023:
+#### [Completed - 17/08/2023]
+
+**Description**:
+- The proposed ES model is defined. 
+- Details of the model are available in the file ```model-definition.ipynb```.
+- Initial parameters are yet to be found.
+
+**Code**: 
+- The file ```model_definition.ipynb``` stores the basic definition of the proposed ES model.  
+
+---
+
+#### [Completed - 06/09/2023]
+
+**Description**: 
+- Decision made to omit the day of the week seasonality from the model.
+- S.I. for Hour of the Day recalculated by scaling with just S.I. for the Month.
+- Conducted t-tests using the methodology from previous work [06/07/2023] for all possible yearly pairs.
+
+**Code**:  
+- Utilized ```scaled-seasonality.ipynb``` and ```ttest_2samp1tail.py``` with necessary changes as required for the updated calculations.
+
+---
+
+#### [Completed - 24/09/2023]
 Description: alpha,beta = 0.2,0.8 (found), tested es model for the first time
 Code: mehhhh, let's see
 
