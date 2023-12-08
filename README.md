@@ -112,10 +112,10 @@ The `ttest_2samp1tail.py` file contains version 1.0, which is commented out in t
 **Output**:
 The tests were performed for all consecutive yearly pairs, determining population mean values for each case. Results are as follows:
 
-  **Hourly Weekdays**: 0.0184, **Weekends**: 0.0185
-  **Mon**: 0.0215, **Tue**: 0.0229, **Wed**: 0.0229, **Thu**: 0.0202, **Fri**: 0.0271
-  **Half-Hourly Weekdays**: 0.0209, **Weekends**: 0.0186
-  **Mon**: 0.0228, **Tue**: 0.0231, **Wed**: 0.0236, **Thu**: 0.0209, **Fri**: 0.0283
+  **Hourly Weekdays**: 0.0184, **Weekends**: 0.0185  
+  **Mon**: 0.0215, **Tue**: 0.0229, **Wed**: 0.0229, **Thu**: 0.0202, **Fri**: 0.0271  
+  **Half-Hourly Weekdays**: 0.0209, **Weekends**: 0.0186  
+  **Mon**: 0.0228, **Tue**: 0.0231, **Wed**: 0.0236, **Thu**: 0.0209, **Fri**: 0.0283  
 
 11/07/2023:
 Data used: Hourly SI (Weekdays,Weekends)
