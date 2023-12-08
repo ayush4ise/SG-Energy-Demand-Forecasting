@@ -180,7 +180,7 @@ The file ```scaled-seasonality.ipynb``` performs computations and saves the resu
 The following Excel files are generated:
 - ```S.I. for the Month.xlsx```
 - ```S.I. Day of the Week.xlsx```
-- ```S.I. Hour of the Day.xlsx```
+- ```S.I. Hour of the Day.xlsx```  
 Located in the folder named ```data\New SI Data\```
 
 
