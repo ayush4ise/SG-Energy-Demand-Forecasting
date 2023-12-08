@@ -86,10 +86,10 @@ The ```anova-tests.py``` file facilitates these computations and stores the resu
   - Null Hypothesis ($H_0$): Absolute difference between S.I. values for a given time slot = 0.005.
   - Alternate Hypothesis ($H_1$): Difference is not equal to 0.005.
 
-**Code**: 
+**Code**:  
 The ```ttest_1samp2tail.py``` file performs these computations and stores the results. To use, update the file paths in the script and specify the day type (weekdays/weekends).
 
-**Output**: 
+**Output**:  
 Two Excel files are generated for each day type:
 - ```Consolidated t-test results [weekdays].xlsx```
 - ```Consolidated t-test results [weekends].xlsx```
@@ -106,10 +106,10 @@ Located in the folder named ```data\3 Year ANOVA\t-testing```.
 - Details of the t-test are available in the file ```ttesting-sample.ipynb```.
 - Population mean values were determined through trial and error.
 
-**Code**: 
+**Code**:  
 The `ttest_2samp1tail.py` file contains version 1.0, which is commented out in the code. This version is used for executing the computations by adjusting the file paths as indicated, while the subsequent code is commented out.
 
-**Output**:
+**Output**:  
 The tests were performed for all consecutive yearly pairs, determining population mean values for each case. Results are as follows:
 
   **Hourly Weekdays**: 0.0184, **Weekends**: 0.0185  
