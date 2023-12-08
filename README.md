@@ -155,20 +155,33 @@ The `ttest_2samp1tail.py` file contains version 2.0, which is commented out in t
 - Monthly seasonalities stored in ```data\New SI Data\S.I. Month of the Year.xlsx```
 - t-test results stored in ```data\t-testing\Monthly S.I. t-test results.xlsx```
 
+---
 
-02/08/2023:
-Data Used: Yearly Energy Demand Data
-Description: scaling the SIs (new formulas)
-Formulas- [check once again with Juan ppt]
-SI for Month of the Year = avg daily demand for month/avg daily demand for year for a particular time slot
-SI for Day of the Week = avg daily demand for Mondays for a month/avg daily demand for the month * monthlySI 
-SI for Hour of the Day = avg hourly demand for a given hour of Mondays for a month/avg hourly demand of Mondays for a momth * monthlySI * weekly SI
-Code: seasonality[01.08].ipynb 
-Output:
-[under New SI data in Drive]
-SI for Month of the Year
-SI for Day of the Week
-SI for Hour of the Day
+#### [Completed - 02/08/2023]
+
+**Data Used**: ```data\Yearly Energy Demand Data\System Demand (Actual)\```
+
+**Description**: 
+- The seasonality indices are scaled by the higher seasonality indices. 
+- Formulas
+  - SI for the Month = $\frac{\text{Average daily demand for month}}{\text{Average daily demand for year}}$
+  - Overall SI for the Month = $\frac{\sum_{i=2004}^{2022} \text{SI for the Month}}{2022-2004+1}$
+
+  - SI for Day of the Week = $\frac{\text{Average daily demand for Mondays of a month}}{\text{Average daily demand for the month} * \text{Overall Monthly SI}}$
+  - Overall SI for Day of the Week = $\frac{\sum_{i=2004}^{2022} \sum_{j=Jan}^{Dec} \text{SI for Day of the Week}}{Number of Month and Year combinations}$
+
+  - SI for Hour of the Day = $\frac{\text{Average hourly demand for a given hour for Mondays of a month}}{\text{Average hourly demand for Mondays of the month} * \text{Overall Monthly SI} * \text{Overall Weekly SI}}$
+  - Overall SI for Hour of the Day = $\frac{\sum_{i=2004}^{2022} \sum_{j=Jan}^{Dec} \sum_{k=Mon}^{Sun} \text{SI for Hour of the Day}}{Number of Month,Year,Day combinations}$
+
+**Code**:  
+The file ```scaled-seasonality.ipynb``` performs computations and saves the results after changing the input file paths accordingly.
+
+**Output**:  
+The following Excel files are generated:
+- ```S.I. for the Month.xlsx```
+- ```S.I. Day of the Week.xlsx```
+- ```S.I. Hour of the Day.xlsx```
+Located in the folder named ```data\New SI Data\```
 
 17/08/2023:
 Description:
