@@ -288,3 +288,10 @@ NEM (Net Energy Metering) data was collected to facilitate a comparative analysi
 
 **Code**:  
 The same codes used in the previous section [7. Model Comparison] were employed with adjustments to limit the input data to the last 5 years.
+
+
+### 8. Model Revision [Started- 15/01/2024]
+
+**Description**:
+- Had a discussion with Prof. Vish about the ES model. 
+- ```model-revision.md```
