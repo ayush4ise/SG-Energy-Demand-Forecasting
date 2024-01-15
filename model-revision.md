@@ -31,15 +31,15 @@ Same as previous model, but we keep updating the values of $L_t$ and $T_t$ at ea
 ```python
 for t in range(len(series) + future_steps):
     if t>= len(series):
-        forecast_t = (l_t1 + t_t1) * (i_sh[t%24] * i_sm[t%365*24])
+        forecast_t = (l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24])
         forecast.append(forecast_t)
     else:
         # updating L_t,B_t values
-        l_t = (l_t1 + t_t1) + alpha * ((series.iloc[t]/(i_sh[t%24] * i_sm[t%365*24])) - (l_t1 + t_t1))
+        l_t = (l_t1 + t_t1) + alpha * ((series.iloc[t]/(i_sh[t%24*7] * i_sm[t%365*24])) - (l_t1 + t_t1))
         t_t1 = t_t1 + beta * (l_t - l_t1 - t_t1)
         l_t1 = l_t # l_t is l_t-1 now for the next period
 
-        forecast.append((l_t1 + t_t1) * (i_sh[t%24] * i_sm[t%365*24]))
+        forecast.append((l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24]))
 ```
 
 ## Revised Model-  
@@ -53,14 +53,14 @@ for t in range(len(series) + future_steps):
 ```python
 for t in range(len(series) + future_steps):
     if t>= len(series):
-        forecast_t = (l_t1 + t_t1) * (i_sh[t%24] * i_sm[t%365*24])
+        forecast_t = (l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24])
         forecast.append(forecast_t)
     else:
         if t%24 == 0:
             # updating L_t,B_t values
-            l_t = (l_t1 + t_t1) + alpha * ((series.iloc[t]/(i_sh[t%24] * i_sm[t%365*24])) - (l_t1 + t_t1))
+            l_t = (l_t1 + t_t1) + alpha * ((series.iloc[t]/(i_sh[t%24*7] * i_sm[t%365*24])) - (l_t1 + t_t1))
             t_t1 = t_t1 + beta * (l_t - l_t1 - t_t1)
             l_t1 = l_t # l_t is l_t-1 now for the next period
 
-        forecast.append((l_t1 + t_t1) * (i_sh[t%24] * i_sm[t%365*24]))
+        forecast.append((l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24]))
 ```
