@@ -44,9 +44,27 @@ for t in range(len(series) + future_steps):
 
 ## Revised Model-  
 
-- We only employ the unknown demand model. We use the same values of $\alpha$ and $\beta$ as before. We use the same values of $L_0$ and $T_0$ as before.   
-- We use the last year's data for S.I. indices. 
+- We assume the demand of the next year to be unknown.
+- We use the same values of $L_0$ and $T_0$ as before.      
+- We use the last year's data for monthly S.I. indices and past week's data for day of the week and hour of the day. 
 - We update the values of $L_t$ and $T_t$ for the input data after each 24 steps (each day) only.
+- We change the $L_t$ and $T_t$ values from hourly to daily and make daily forecasts. We then convert the daily forecasts to hourly forecasts by multiplying with the S.I. indices.
+
+Let,  
+t = a single hour instance  
+$t_d$ = a single day instance  
+$L_{t_d}$ = Daily Level  
+$B_{t_d}$ = Daily Trend
+
+$L_{t_d} = L_{t_d-1} + B_{t_d-1} + \alpha\left(\frac{D_{t_d}}{S_{t-m_d}^{d}S_{t-m_m}^{m}} - (L_{t_d-1} + B_{t_d-1}) \right)$
+
+$B_{t_d} = B_{t_d-1} + \beta(L_{t_d} - L_{t_d-1} - B_{t_d-1})$
+
+Daily Forecast, $F_{t+1} = (L_{t_d} + B_{t_d})(S_{t-m_d}^{d}S_{t-m_m}^{m})$
+
+Hourly Forecast = $\frac{F_{t+1}}{12} * S_{t-m_h}^{h}$
+
+[If we are updating seasonalities, how will we do it. Seasonality formula requires demand and level for the time instance. So, do we update the level and trend values for the time instance and then calculate the seasonalities?]
 
 ### *Code:*
 
