@@ -82,3 +82,9 @@ for t in range(len(series) + future_steps):
 
         forecast.append((l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24]))
 ```
+
+ft = ltd-1 + btd-1 (st+1)
+wednesday = tuesday + tuesday (seasonality_wednesday)
+
+
+m_t + 1
