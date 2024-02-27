@@ -44,11 +44,7 @@ for t in range(len(series) + future_steps):
 
 ## Revised Model-  
 
-- We assume the demand of the next year to be unknown.
-- We use the same values of $L_0$ and $T_0$ as before.      
-- We use the last year's data for monthly S.I. indices and past week's data for day of the week and hour of the day. 
-- We update the values of $L_t$ and $T_t$ for the input data after each 24 steps (each day) only.
-- We change the $L_t$ and $T_t$ values from hourly to daily and make daily forecasts. We then convert the daily forecasts to hourly forecasts by multiplying with the S.I. indices.
+- Daily forecasts are made instead of hourly forecasts, resulting in less updations of level and trend
 
 Let,  
 t = a single hour instance  
@@ -56,35 +52,36 @@ $t_d$ = a single day instance
 $L_{t_d}$ = Daily Level  
 $B_{t_d}$ = Daily Trend
 
-$L_{t_d} = L_{t_d-1} + B_{t_d-1} + \alpha\left(\frac{D_{t_d}}{S_{t-m_d}^{d}S_{t-m_m}^{m}} - (L_{t_d-1} + B_{t_d-1}) \right)$
+$L_{t_d} = L_{t_d-1} + B_{t_d-1} + \alpha\left(\frac{D_{t_d}}{S_{m}} - (L_{t_d-1} + B_{t_d-1}) \right)$
 
 $B_{t_d} = B_{t_d-1} + \beta(L_{t_d} - L_{t_d-1} - B_{t_d-1})$
 
-Daily Forecast, $F_{t+1} = (L_{t_d} + B_{t_d})(S_{t-m_d}^{d}S_{t-m_m}^{m})$
+Daily Forecast, $F_{t_d} = (L_{t_d-1} + B_{t_d-1})(S_{m})$
 
-Hourly Forecast = $\frac{F_{t+1}}{12} * S_{t-m_h}^{h}$
+Hourly Forecast = $\frac{F_{t_d}}{24} * S_{h}$
 
-[If we are updating seasonalities, how will we do it. Seasonality formula requires demand and level for the time instance. So, do we update the level and trend values for the time instance and then calculate the seasonalities?]
+$S_m$ = Seasonality index for the month from previous year  
+$S_h$ = Seasonality index for the hour from previous week (previous month, same year)
+
+
 
 ### *Code:*
 
 ```python
-for t in range(len(series) + future_steps):
-    if t>= len(series):
-        forecast_t = (l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24])
-        forecast.append(forecast_t)
-    else:
-        if t%24 == 0:
-            # updating L_t,B_t values
-            l_t = (l_t1 + t_t1) + alpha * ((series.iloc[t]/(i_sh[t%24*7] * i_sm[t%365*24])) - (l_t1 + t_t1))
-            t_t1 = t_t1 + beta * (l_t - l_t1 - t_t1)
-            l_t1 = l_t # l_t is l_t-1 now for the next period
+for t in range(len(series)):
+    i_sh, i_sm = input_seasonality(series.index[t])
+    i_sm = i_sm.values[0]
 
-        forecast.append((l_t1 + t_t1) * (i_sh[t%24*7] * i_sm[t%365*24]))
+    l_t = alpha * (series.values[t]/i_sm) + (1 - alpha) * (l_t1 + t_t1)
+    t_t = beta * (l_t - l_t1) + (1 - beta) * t_t1
+
+    forecast_t = (l_t1 + t_t1) * i_sm
+    l_t1 = l_t
+    t_t1 = t_t
+    daily_forecast = forecast_t
+    hourly_forecast = daily_forecast / 24
+
+    for i in range(24):
+            forecasts.append(hourly_forecast * i_sh[i])
+            index.append(series.index[t] + pd.Timedelta(hours=i))
 ```
-
-ft = ltd-1 + btd-1 (st+1)
-wednesday = tuesday + tuesday (seasonality_wednesday)
-
-
-m_t + 1

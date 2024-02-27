@@ -294,4 +294,7 @@ The same codes used in the previous section [7. Model Comparison] were employed 
 
 **Description**:
 - Had a discussion with Prof. Vish about the ES model. 
-- ```model-revision.md```
+- ```model-revision.md``` contains the details of the discussion and the proposed changes to the model.
+
+**Code**:
+'model-revision.ipynb contains the revised ES model code. `data\Model Revision` contains the seasonality data used as input for the revised model.
