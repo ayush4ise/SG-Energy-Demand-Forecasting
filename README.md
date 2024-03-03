@@ -298,3 +298,14 @@ The same codes used in the previous section [7. Model Comparison] were employed 
 
 **Code**:
 'model-revision.ipynb contains the revised ES model code. `data\Model Revision` contains the seasonality data used as input for the revised model.
+
+---
+
+It is to be noted that the GDP data used so far is in USD with current prices (2023).
+
+---
+
+The GDP data used from this point will be taken in USD with constant prices.
+
+---
+

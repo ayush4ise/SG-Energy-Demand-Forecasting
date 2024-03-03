@@ -3,24 +3,49 @@ def filepath(year:int,demandtype:str):
     Works for the following file structure-
 
     ├── yourfile
-    ├── Yearly Energy Demand Data/
-    │ ├── System Demand (Actual)
-    │ └── NEM Demand (Actual)
-    | └── NEM Demand (Forecast)
+    ├── data/
+    │ ├── Yearly Energy Demand Data/
+    | | ├── System Demand (Actual)/
+    | │ └── NEM Demand (Actual)
+    | | └── NEM Demand (Forecast)
 
     demandtype = ['system','nem_actual','nem_forecast']
     """
     typelist = ['system','nem_actual','nem_forecast']
     if demandtype == typelist[0]:
-        return "Yearly Energy Demand Data/System Demand (Actual)/" + f"{year}.xlsx"
+        return "data/Yearly Energy Demand Data/System Demand (Actual)/" + f"{year}.xlsx"
     elif demandtype == typelist[1]:
-        return "Yearly Energy Demand Data/NEM Demand (Actual)/" + f"{year}[nem_actual].xlsx"
+        return "data/Yearly Energy Demand Data/NEM Demand (Actual)/" + f"{year}[nem_actual].xlsx"
     elif demandtype == typelist[2]:
-        return "Yearly Energy Demand Data/NEM Demand (Forecast)/" + f"{year}[nem_forecast].xlsx"
+        return "data/Yearly Energy Demand Data/NEM Demand (Forecast)/" + f"{year}[nem_forecast].xlsx"
     else:
         pass
 
-def timeseries(startyear:int, endyear:int, demandtype:str):
+def dailytimeseries(startyear:int, endyear:int, demandtype:str):
+    """
+    works when filepath function is supported for the file
+
+    typelist = ['system','nem_actual','nem_forecast']
+    """
+    import warnings
+    warnings.filterwarnings("ignore")
+    import pandas as pd
+    
+    # collect all years of data in one dataframe
+    bigdf = pd.read_excel(filepath(startyear-1,demandtype), index_col=0)
+    for year in range(startyear,endyear+1):
+        temp_df = pd.read_excel(filepath(year,demandtype), index_col=0)
+        bigdf = bigdf.merge(temp_df, left_index=True, right_index=True)
+
+    tempdf = bigdf.copy()
+    tempdf = tempdf.sum(axis=0)
+    tempdf.index = pd.to_datetime([i[:-4] for i in tempdf.index], dayfirst=True)
+    tempdf = tempdf[tempdf.index.year >= startyear]
+    tempdf = tempdf[tempdf.index.year <= endyear]
+
+    return tempdf
+
+def hourlytimeseries(startyear:int, endyear:int, demandtype:str):
     """
     works when filepath function is supported for the file
 
