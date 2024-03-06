@@ -308,4 +308,3 @@ It is to be noted that the GDP data used so far is in USD with current prices (2
 The GDP data used from this point will be taken in USD with constant prices.
 
 ---
-
