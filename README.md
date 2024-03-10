@@ -290,14 +290,16 @@ NEM (Net Energy Metering) data was collected to facilitate a comparative analysi
 The same codes used in the previous section [7. Model Comparison] were employed with adjustments to limit the input data to the last 5 years.
 
 
-### 8. Model Revision [Started- 15/01/2024]
+### 9. Model Revision [Started- 15/01/2024]
+
+#### [Completed - 27/02/2024]
 
 **Description**:
 - Had a discussion with Prof. Vish about the ES model. 
 - ```model-revision.md``` contains the details of the discussion and the proposed changes to the model.
 
-**Code**:
-'model-revision.ipynb contains the revised ES model code. `data\Model Revision` contains the seasonality data used as input for the revised model.
+**Code**:  
+`model-revision.ipynb` contains the revised ES model code. `data\Model Revision` contains the seasonality data used as input for the revised model.
 
 ---
 
@@ -308,3 +310,25 @@ It is to be noted that the GDP data used so far is in USD with current prices (2
 The GDP data used from this point will be taken in USD with constant prices.
 
 ---
+
+#### [Completed - 01/03/2024]
+
+**Data**:
+- Method 1: ```data\Model Inputs\Total Yearly Demand.xlsx``` 
+
+- Method 2 uses the GDP data collected from IMF's World Economic Outlook Database. You can access the data for respective years in the following manner: [World Economic Outlook Database](https://www.imf.org/en/Publications/WEO/weo-database/2023/October)
+
+**Description**:
+- Two methods were used to forecast total yearly demand:
+  - Method 1: 
+    - Utilizes the relationship between GDP and Total Yearly Demand, assuming the GDP data is known for the forecast year.
+    - The SI data is used from 5 years ago to the forecast year. For example, for the 2018 forecast, the SIs from 2013 are used.
+  - Method 2: 
+    - The GDP data is taken in the current prices (USD billions) for the year the report is generated.
+    - The GDP forecasts given in the reports are used to forecast five year ahead forecasts.
+    - For example, the report from October 2014 is used for the 2018 forecast, and the report from October 2015 is used for the 2019 forecast.
+    - The SIs are used from 5 years ago to the forecast year. For example, for the 2018 forecast, the SIs from 2013 are used.
+    - The forecasted total yearly demand is then used to forecast the hourly demand for the forecast year.
+
+**Code**:  
+`model-revision2.ipynb` contains the code for the two methods. The file `utils_ts.py` is used to convert the energy demand data into a usable time series for the input and test series.
