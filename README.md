@@ -331,4 +331,4 @@ The GDP data used from this point will be taken in USD with constant prices.
     - The forecasted total yearly demand is then used to forecast the hourly demand for the forecast year.
 
 **Code**:  
-`model-revision2.ipynb` contains the code for the two methods. The file `utils_ts.py` is used to convert the energy demand data into a usable time series for the input and test series.
+`model-revision2.ipynb` contains the code for the two methods. The file `utils_ts.py` is used to convert the energy demand data into a usable time series for the input and test series. All the linear regression models used for Method 2 calculations also have their summary displayed in the notebook.
