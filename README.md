@@ -337,6 +337,6 @@ The GDP data used from this point will be taken in USD with constant prices.
 
 Half-hourly demand data is in MWh, so when we calculate the hourly demand by aggregating the half-hourly demand, we need to divide the sum by 2 to get the hourly demand. This correction to be made for all the aggregation calculations.
 
-```hourly-modeel-revision2.ipynb``` and ```hourly_revision)utils_ts.py``` are used to make the necessary corrections for forecasts.
+```hourly-model-revision2.ipynb``` and ```hourly_revision_utils_ts.py``` are used to make the necessary corrections for forecasts.
 
 Additioanally, forecasts for 2020 to 2022 are made using the revised model [also for the hourly revision].
