@@ -307,7 +307,7 @@ It is to be noted that the GDP data used so far is in USD with current prices (2
 
 ---
 
-The GDP data used from this point will be taken in USD with constant prices.
+The GDP data used from this point will be taken in USD with current prices for the forecast year.
 
 ---
 
@@ -320,10 +320,10 @@ The GDP data used from this point will be taken in USD with constant prices.
 
 **Description**:
 - Two methods were used to forecast total yearly demand:
-  - Method 1: 
+  - Method 1:
     - Utilizes the relationship between GDP and Total Yearly Demand, assuming the GDP data is known for the forecast year.
     - The SI data is used from 5 years ago to the forecast year. For example, for the 2018 forecast, the SIs from 2013 are used.
-  - Method 2: 
+  - Method 2:
     - The GDP data is taken in the current prices (USD billions) for the year the report is generated.
     - The GDP forecasts given in the reports are used to forecast five year ahead forecasts.
     - For example, the report from October 2014 is used for the 2018 forecast, and the report from October 2015 is used for the 2019 forecast.
@@ -337,7 +337,7 @@ The GDP data used from this point will be taken in USD with constant prices.
 
 Half-hourly demand data is in MWh, so when we calculate the hourly demand by aggregating the half-hourly demand, we need to divide the sum by 2 to get the hourly demand. This correction to be made for all the aggregation calculations.
 
-```hourly-model-revision2.ipynb``` and ```hourly_revision_utils_ts.py``` are used to make the necessary corrections for forecasts. 
+```hourly-model-revision2.ipynb``` and ```hourly_revision_utils_ts.py``` are used to make the necessary corrections for forecasts.
 The recalculated inputs taken for the same are stored in the folder ```data\hourly-revision-data``` along with some recalculated statistical tests.
 
 Additioanally, forecasts for 2020 to 2022 are made using the revised model [also for the hourly revision].
